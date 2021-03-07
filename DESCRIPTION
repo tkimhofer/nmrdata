@@ -2,7 +2,7 @@ Package: nmrdata
 Type: Package
 Title: Example 1D NMR data for metabolic profiling
 Version: 0.1.0
-Author:  person(given = "Torben",
+Author: person(given = "Torben",
            family = "Kimhofer",
            role = c("aut", "cre"),
            email = "torben.kimhofer@murdoch.edu.au",
@@ -13,3 +13,4 @@ Suggests: metabom8
 License: MIT
 Encoding: UTF-8
 LazyData: true
+RoxygenNote: 7.1.1
