@@ -17,8 +17,6 @@ Dataset includes:
 - Associated sample metadata (`an`)
 - Chemical shift values (`ppm`)
 
-[1] Li, Jia V., et al. (2011). *Metabolic surgery profoundly influences gut microbial–host metabolic cross-talk*. **Gut**, 60(9), 1214–1223. https://doi.org/10.1136/gut.2010.234708
-
 ---
 
 ## 📦 Installation
@@ -51,5 +49,10 @@ MIT License © Torben Kimhofer
 If you use this data in published work, please include appropriate attribution or citation.
 
 ---
+
+## 📚 References
+
+[1] Li, Jia V., *et al.* (2011). *Metabolic surgery profoundly influences gut microbial–host metabolic cross-talk.* **Gut**, 60(9), 1214–1223. https://doi.org/10.1136/gut.2010.234708
+
 
 *Built and maintained with care by [@tkimhofer](https://github.com/tkimhofer)*
