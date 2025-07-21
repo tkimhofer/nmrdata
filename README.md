@@ -10,13 +10,15 @@ This repository provides curated 1D NMR datasets for use in metabolomics teachin
 
 Dataset is stored in the `data/` directory in `.rda` format and include:
 
-- `bariatric`: Spectra and metadata from a bariatric surgery study  
+- `bariatric`: Spectra and metadata from a bariatric surgery study [1]
 
 Dataset includes:
 - Pre-processed spectral matrix (`X_pqn`)
 - Associated sample metadata (`an`)
 - ppm values (`ppm`)
 
+
+[1] Li, Jia V., et al. (2011). *Metabolic surgery profoundly influences gut microbial–host metabolic cross-talk*. **Gut**, 60(9), 1214–1223. https://doi.org/10.1136/gut.2010.234708
 ---
 
 ## 📦 Installation
