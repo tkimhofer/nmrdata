@@ -9,6 +9,8 @@ on:
 jobs:
   R-CMD-check:
     runs-on: ${{ matrix.os }}
+    env:
+      R_LIBS_USER: ${{ github.workspace }}/R/library  # consistent library path
     strategy:
       fail-fast: false
       matrix:
@@ -39,16 +41,17 @@ jobs:
 
       - name: Install CRAN dependencies
         run: |
-          install.packages(c("curl", "remotes", "rcmdcheck", "testthat", "knitr", "devtools"))
-          remotes::install_deps(dependencies = TRUE)
+          install.packages(c("curl", "remotes", "rcmdcheck", "testthat", "knitr", "devtools", "DT"), lib = Sys.getenv("R_LIBS_USER"))
+          remotes::install_deps(dependencies = TRUE, lib = Sys.getenv("R_LIBS_USER"))
         shell: Rscript {0}
 
       - name: List installed packages
-        run: Rscript -e 'installed.packages()[, "Package"]'
+        run: Rscript -e 'installed.packages(lib.loc = Sys.getenv("R_LIBS_USER"))[, "Package"]'
 
-      - name: Run tests
+      - name: Run checks and tests
         env:
           _R_CHECK_FORCE_SUGGESTS_: false
+          R_LIBS_USER: ${{ github.workspace }}/R/library
         run: |
           rcmdcheck::rcmdcheck(args = c("--no-manual", "--run-donttest", "--no-build-vignettes"), error_on = "error")
           devtools::test()
