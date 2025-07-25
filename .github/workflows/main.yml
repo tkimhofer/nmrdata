@@ -10,7 +10,7 @@ jobs:
   R-CMD-check:
     runs-on: ${{ matrix.os }}
     env:
-      R_LIBS_USER: ${{ github.workspace }}/R/library  # consistent R library path
+      R_LIBS_USER: ${{ github.workspace }}/R/library
     strategy:
       fail-fast: false
       matrix:
@@ -50,11 +50,12 @@ jobs:
         shell: Rscript {0}
         run: |
           .libPaths(Sys.getenv("R_LIBS_USER"))
-          install.packages(c("curl", "remotes", "rcmdcheck", "testthat", "knitr", "devtools", "DT"), lib = Sys.getenv("R_LIBS_USER"))
+          install.packages(c("curl", "remotes", "rcmdcheck", "testthat", "knitr", "devtools", "DT"), lib = Sys.getenv("R_LIBS_USER"), repos = "https://cran.rstudio.com", INSTALL_opts = "--no-lock")
           remotes::install_deps(dependencies = TRUE, lib = Sys.getenv("R_LIBS_USER"))
 
-      - name: List installed packages
-        run: Rscript -e '.libPaths(Sys.getenv("R_LIBS_USER")); installed.packages(lib.loc=Sys.getenv("R_LIBS_USER"))[, "Package"]'
+      - name: Verify packages installed
+        run: |
+          Rscript -e '.libPaths(Sys.getenv("R_LIBS_USER")); print(installed.packages(lib.loc = Sys.getenv("R_LIBS_USER"))[, "Package"])'
 
       - name: Run checks and tests
         shell: Rscript {0}
@@ -63,5 +64,8 @@ jobs:
           R_LIBS_USER: ${{ github.workspace }}/R/library
         run: |
           .libPaths(Sys.getenv("R_LIBS_USER"))
+          if (!requireNamespace("rcmdcheck", quietly = TRUE)) {
+            stop("rcmdcheck package not found")
+          }
           rcmdcheck::rcmdcheck(args = c("--no-manual", "--run-donttest", "--no-build-vignettes"), error_on = "error")
           devtools::test()
