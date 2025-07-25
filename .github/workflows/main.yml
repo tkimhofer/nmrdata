@@ -10,7 +10,7 @@ jobs:
   R-CMD-check:
     runs-on: ${{ matrix.os }}
     env:
-      R_LIBS_USER: ${{ github.workspace }}/R/library  # consistent library path
+      R_LIBS_USER: ${{ github.workspace }}/R/library  # consistent R library path
     strategy:
       fail-fast: false
       matrix:
@@ -20,6 +20,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Create R library folder
+        run: mkdir -p ${{ env.R_LIBS_USER }}
+
       - name: Cache R packages
         uses: actions/cache@v3
         with:
@@ -28,7 +31,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-R-${{ matrix.r-version }}-
 
-      - name: Install system dependencies (Ubuntu)
+      - name: Install system dependencies (Ubuntu only)
         if: matrix.os == 'ubuntu-latest'
         run: |
           sudo apt-get update
@@ -40,19 +43,21 @@ jobs:
           r-version: ${{ matrix.r-version }}
 
       - name: Install CRAN dependencies
+        shell: Rscript {0}
         run: |
+          .libPaths(Sys.getenv("R_LIBS_USER"))
           install.packages(c("curl", "remotes", "rcmdcheck", "testthat", "knitr", "devtools", "DT"), lib = Sys.getenv("R_LIBS_USER"))
           remotes::install_deps(dependencies = TRUE, lib = Sys.getenv("R_LIBS_USER"))
-        shell: Rscript {0}
 
       - name: List installed packages
-        run: Rscript -e 'installed.packages(lib.loc = Sys.getenv("R_LIBS_USER"))[, "Package"]'
+        run: Rscript -e '.libPaths(Sys.getenv("R_LIBS_USER")); installed.packages(lib.loc=Sys.getenv("R_LIBS_USER"))[, "Package"]'
 
       - name: Run checks and tests
+        shell: Rscript {0}
         env:
           _R_CHECK_FORCE_SUGGESTS_: false
           R_LIBS_USER: ${{ github.workspace }}/R/library
         run: |
+          .libPaths(Sys.getenv("R_LIBS_USER"))
           rcmdcheck::rcmdcheck(args = c("--no-manual", "--run-donttest", "--no-build-vignettes"), error_on = "error")
           devtools::test()
-        shell: Rscript {0}
