@@ -10,7 +10,7 @@ Author: person(given = "Torben",
 Maintainer: The package maintainer <yourself@somewhere.net>
 Description: One dimensional proton NMR spectra of murine urine samples collected before and after bariatric surgery (Roux-en-Y gastric bypass). Data published by Dr Jia V Li (Imperial College London) et al: "Metabolic surgery profoundly influences gut microbial-host metabolic cross-talk", Gut, 60.9, 1214-1223.
 Suggests: metabom8
-License: MIT
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.1
