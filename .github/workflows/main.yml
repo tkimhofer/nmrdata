@@ -10,7 +10,7 @@ jobs:
   R-CMD-check:
     runs-on: ${{ matrix.os }}
     env:
-      R_LIBS_USER: ${{ github.workspace }}/R/library
+      R_LIBS_USER: ${{ github.workspace }}/R/library  # consistent R library path
     strategy:
       fail-fast: false
       matrix:
@@ -48,14 +48,18 @@ jobs:
 
       - name: Install CRAN dependencies
         shell: Rscript {0}
+        env:
+          R_LIBS_USER: ${{ github.workspace }}/R/library
         run: |
           .libPaths(Sys.getenv("R_LIBS_USER"))
           install.packages(c("curl", "remotes", "rcmdcheck", "testthat", "knitr", "devtools", "DT"), lib = Sys.getenv("R_LIBS_USER"), repos = "https://cran.rstudio.com", INSTALL_opts = "--no-lock")
           remotes::install_deps(dependencies = TRUE, lib = Sys.getenv("R_LIBS_USER"))
 
-      - name: Verify packages installed
-        run: |
-          Rscript -e '.libPaths(Sys.getenv("R_LIBS_USER")); print(installed.packages(lib.loc = Sys.getenv("R_LIBS_USER"))[, "Package"])'
+      - name: List installed packages
+        shell: Rscript {0}
+        env:
+          R_LIBS_USER: ${{ github.workspace }}/R/library
+        run: Rscript -e '.libPaths(Sys.getenv("R_LIBS_USER")); installed.packages(lib.loc=Sys.getenv("R_LIBS_USER"))[, "Package"]'
 
       - name: Run checks and tests
         shell: Rscript {0}
