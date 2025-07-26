@@ -30,3 +30,4 @@ node_modules/
 # Test artifacts
 testthat.Rout*
 .Rbuildignore
+*.Rproj

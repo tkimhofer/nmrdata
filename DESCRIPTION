@@ -12,4 +12,5 @@ Description: One dimensional proton NMR spectra of murine urine samples collecte
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
+LazyDataCompression: none
 RoxygenNote: 7.1.1
