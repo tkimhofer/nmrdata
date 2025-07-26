@@ -3,7 +3,7 @@ on:
     branches: [master]
   pull_request:
 
-name: R-CMD-check_ubuntu.yaml
+name: R-CMD-check
 
 permissions: read-all
 
