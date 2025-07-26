@@ -1,3 +1,5 @@
+[![R-CMD-check](https://github.com/tkimhofer/nmrdata/actions/workflows/main.yml/badge.svg)](https://github.com/tkimhofer/nmrdata/actions/workflows/main.yml)
+
 # nmrdata 📦
 
 **Example datasets for 1D NMR spectral analysis in R**
