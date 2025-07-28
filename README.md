@@ -1,6 +1,6 @@
 [![R-CMD-check](https://github.com/tkimhofer/nmrdata/actions/workflows/main.yml/badge.svg)](https://github.com/tkimhofer/nmrdata/actions/workflows/main.yml)
 
-# nmrdata 📦
+# nmrData 📦
 
 **Example datasets for 1D NMR spectral analysis in R**
 
@@ -27,13 +27,13 @@ You can install this repository as an R package using:
 
 ```r
 # install.packages("remotes")
-remotes::install_github("tkimhofer/nmrdata")
+remotes::install_github("tkimhofer/nmrData")
 ```
 
 Once installed, datasets can be loaded via:
 
 ```r
-library(nmrdata)
+library(nmrData)
 data(bariatric)
 ```
 
