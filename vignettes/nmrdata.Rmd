@@ -1,0 +1,66 @@
+---
+title: "nmrdata: Example 1D Proton NMR Data"
+author: "Torben Kimhofer"
+date: "`r Sys.Date()`"
+output: BiocStyle::html_document
+vignette: >
+  %\VignetteIndexEntry{Introduction to the nmrdata package}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+bibliography: references.bib
+---
+
+# Introduction
+
+The **nmrdata** package provides example 1D proton NMR spectra of murine 
+urine samples collected before and after Roux-en-Y gastric bypass.
+A sham surgery group is also included as a negative control [@li2011gut].
+
+In addition to the processed dataset (`bariatric`), the package also contains a minimal set 
+of the raw Bruker NMR experiment files, located under `inst/extdata/`. 
+These files can be accessed using the `system.file()` function, e.g.:
+
+```{r}
+# Bruker Topspin-processed spectral data for experiment folder 1
+raw_path <- system.file("extdata", "1/pdata/1", package = "nmrdata")
+```
+
+Both, processed data and raw experiment files are primarily intended for demonstrating 
+functionality of the  companion software package `metabom8`.
+
+# Dataset description
+
+- One-dimensional proton (\(^1\)H) NMR spectra  
+- 67 urine samples (murine model)  
+- Acquired on a Bruker Avance III 600 MHz spectrometer  
+- Preprocessed with Probabilistic Quotient Normalization (PQN)  
+
+The dataset is provided as an R list with three elements:
+
+- `X.pqn`: Matrix of pre-processed spectra  
+- `ppm`: Chemical shift vector (ppm)  
+- `an`: Sample annotation data (e.g., class membership)
+- `meta`: Acquisition and processing status parameters (Topspin), prefixed with `a` and `p`, respectively
+
+# Usage
+
+```{r}
+library(nmrdata)
+data("bariatric")
+
+# Inspect structure
+str(bariatric)
+
+# Quick plot of first spectrum
+plot(bariatric$ppm, bariatric$X.pqn[1,], type = "l",
+     xlab = "Chemical shift (ppm)", ylab = "Intensity")
+```
+
+
+# Session Info
+
+```{r}
+sessionInfo()
+```
+
+
