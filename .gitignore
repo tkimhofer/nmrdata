@@ -31,3 +31,5 @@ node_modules/
 testthat.Rout*
 .Rbuildignore
 *.Rproj
+/doc/
+/Meta/
