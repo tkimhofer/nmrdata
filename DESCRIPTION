@@ -16,12 +16,16 @@ Description: provides example one-dimensional proton NMR spectra of murine urine
     metabolomics analysis and teaching purposes.
 License: MIT + file LICENSE
 Encoding: UTF-8
-LazyData: true
-LazyDataCompression: none
+LazyData: false
 RoxygenNote: 7.3.2
+Imports:
+  ExperimentHub
 Suggests: 
     BiocStyle,
     knitr,
+    metabom8,
     rmarkdown
 VignetteBuilder: knitr
-biocViews: ExperimentData, Metabolomics
+biocViews: ExperimentHub, ExperimentData
+BugReports: https://github.com/tkimhofer/nmrdata/issues
+URL: https://github.com/tkimhofer/nmrdata

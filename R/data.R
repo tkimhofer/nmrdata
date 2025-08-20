@@ -1,35 +1,35 @@
-#' @name bariatric
-#' @docType data
-#' @title Bariatric surgery data
-#' @usage data(bariatric)
-#' @description Metabolic profiling NMR dataset of murine urine samples collected before and after bariatric surgery (Roux-en-Y gastric bypass).
-#' @details
-#' One-dimensional proton NMR spectra of murine urine samples were acquired on a
-#' Bruker Avance III spectrometer (Bruker, Germany) operating at
-#' 600.13 MHz and 300 K. A standard one-dimensional NOESY-presaturation pulse
-#' sequence (\emph{recycle delay–90\eqn{^\circ}{deg}–t1–90\eqn{^\circ}{deg}–tm–90\eqn{^\circ}{deg}–acquisition})
-#' was applied for water suppression and metabolite detection.
+#' Bariatric surgery NMR dataset
 #'
-#' Experimental parameters were as follows: \emph{t1} (short delay) was set to
-#' 3 \eqn{\mu}{micro}s, the mixing time (\emph{tm}) was 100 ms, and the recycle
-#' delay was 2 s. The 90\eqn{^\circ}{deg} pulse was calibrated to 10 \eqn{\mu}{micro}s.
-#' A total of 128 transients (scans) were collected into 64k complex data points,
-#' with a spectral width of 20 ppm.
+#' Urine samples from male Wistar rats in a bariatric surgery study,
+#' acquired on a Bruker Avance III 600 MHz spectrometer (n = 67).
 #'
-#' Water suppression was achieved by selective irradiation during both the
-#' recycle delay and the mixing time. For further information on sample
-#' collection and preprocessing, see the reference below and the
-#' \emph{metabom8} vignette “Data Import and Preprocessing”.
-#' @format A list with three elements:
+#' @return A list with three elements:
 #' \describe{
-#'   \item{X.pqn}{Matrix of pre-processed Proton NMR spectra with rows representing spectra}
-#'   \item{ppm}{Chemical shift vector in ppm with its length equals the number of columns in \code{X.pqn}}
-#'   \item{meta}{Spectrometer metadata}
+#'   \item{X.pqn}{Matrix of pre-processed proton NMR spectra (rows = spectra)}
+#'   \item{ppm}{Chemical shift vector in ppm (length = ncol(X.pqn))}
+#'   \item{meta}{Spectrometer metadata (acquisition + processing parameters)}
 #' }
-#' @source Dr. Jia V. Li, Imperial College London, Department of Surgery and Cancer, Centre for Computational and Systems Medicine. \url{https://www.imperial.ac.uk/people/jia.li}
-#' @references Li, Jia V., \emph{et al.} (2011)
-#' Metabolic surgery profoundly influences gut microbial-host metabolic cross-talk.
-#' \emph{Gut}, 60(9), 1214–1223. \doi{10.1136/gut.2010.234708}
-#' PMID: \url{https://pubmed.ncbi.nlm.nih.gov/21572120}
-#' @keywords datasets
-"bariatric"
+#'
+#' @references
+#' Li, Jia V., *et al.* (2011) Metabolic surgery profoundly influences
+#' gut microbial-host metabolic cross-talk. *Gut*, 60(9), 1214–1223.
+#' \doi{10.1136/gut.2010.234708}
+#'
+#' @examples
+#' ## Create hub instance
+#' eh <- ExperimentHub::ExperimentHub()
+#' length(eh)  # show how many records available
+#'
+#' \dontrun{
+#' library(ExperimentHub)
+#' eh <- ExperimentHub()
+#' # Replace EHxxxx with actual EH ID after Bioconductor review
+#' data <- eh[["EHxxxx"]]
+#' str(data)
+#' }
+#'
+#' @export
+BariatricData <- function() {
+  eh <- ExperimentHub::ExperimentHub()
+  eh[["EHxxxx"]]
+}
