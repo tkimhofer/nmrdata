@@ -34,11 +34,14 @@ Install from GitHub using:
 remotes::install_github("tkimhofer/nmrData")
 ```
 
-Load the data:
+Load the processed data (once ExperimentHub ID assigned):
 
 ```r
-library(nmrData)
-data(bariatric)
+library(nmrdata)
+library(ExperimentHub)
+
+eh <- ExperimentHub()
+bariatric <- eh[["EHxxxx"]]   # ID currently being assigned
 ```
 
 Access raw files:
