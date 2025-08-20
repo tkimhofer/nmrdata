@@ -1,41 +1,53 @@
 [![R-CMD-check](https://github.com/tkimhofer/nmrdata/actions/workflows/main.yml/badge.svg)](https://github.com/tkimhofer/nmrdata/actions/workflows/main.yml)
 
-# nmrData 📦
+# nmrdata 📦
 
 **Example datasets for 1D NMR spectral analysis in R**
 
 This data-only R package provides curated 1D NMR datasets for use in metabolomics teaching, demonstration, and package development. The datasets are formatted for direct use with R-based tools such as [`metabom8`](https://github.com/tkimhofer/metabom8).
 
+In addition to the processed dataset (`bariatric`), the package contains a minimal set of raw Bruker NMR experiment folders, stored under `inst/extdata/`.  
+These files can be accessed using `system.file()`.
+
+
 ---
 
-## 📁 Included Dataset
+## 📁 Included Data
 
-Dataset is stored in the `data/` directory in `.rda` format and includes:
+- **Processed dataset (in `data/` as `.rda`):**
+  - `bariatric`: NMR spectra and metadata from a bariatric surgery study [1]  
+    - Pre-processed spectral matrix (`X_pqn`)  
+    - Associated sample metadata (`an`)  
+    - Chemical shift values (`ppm`)  
 
-- `bariatric`: Spectra and metadata from a bariatric surgery study [1]
-
-Dataset includes:
-- Pre-processed spectral matrix (`X_pqn`)
-- Associated sample metadata (`an`)
-- Chemical shift values (`ppm`)
+- **Raw data (in `inst/extdata/`):**
+  - Bruker experiment folders for demonstration and teaching
 
 ---
 
 ## 📦 Installation
 
-You can install this repository as an R package using:
+Install from GitHub using:
 
 ```r
 # install.packages("remotes")
 remotes::install_github("tkimhofer/nmrData")
 ```
 
-Once installed, datasets can be loaded via:
+Load the data:
 
 ```r
 library(nmrData)
 data(bariatric)
 ```
+
+Access raw files:
+
+```r
+library(nmrData)
+data(bariatric)
+```
+
 
 ---
 
