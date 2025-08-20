@@ -4,7 +4,7 @@
 
 **Example datasets for 1D NMR spectral analysis in R**
 
-This Data-only R package provides curated 1D NMR datasets for use in metabolomics teaching, demonstration, and package development. The datasets are formatted for direct use with R-based tools such as [`metabom8`](https://github.com/tkimhofer/metabom8).
+This data-only R package provides curated 1D NMR datasets for use in metabolomics teaching, demonstration, and package development. The datasets are formatted for direct use with R-based tools such as [`metabom8`](https://github.com/tkimhofer/metabom8).
 
 ---
 
