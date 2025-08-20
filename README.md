@@ -1,4 +1,3 @@
-[![R-CMD-check](https://github.com/tkimhofer/nmrdata/actions/workflows/main.yml/badge.svg)](https://github.com/tkimhofer/nmrdata/actions/workflows/main.yml)
 
 # nmrdata 📦
 
