@@ -17,11 +17,11 @@ jobs:
       fail-fast: false
       matrix:
         config:
-          - {os: windows-latest,    r: 'release'}
-          - {os: macos-latest,    r: 'release'}
-          - {os: ubuntu-latest,   r: 'devel', http-user-agent: 'release'}
-          - {os: ubuntu-latest,   r: 'release'}
-          - {os: ubuntu-latest,   r: 'oldrel-1'}
+          - {os: windows-latest, r: 'release'}
+          - {os: macos-latest,   r: 'release'}
+          - {os: ubuntu-latest,  r: 'devel', http-user-agent: 'release'}
+          - {os: ubuntu-latest,  r: 'release'}
+          - {os: ubuntu-latest,  r: 'oldrel-1'}
 
     env:
       GITHUB_PAT: ${{ secrets.GH_TOKEN }}
@@ -42,8 +42,11 @@ jobs:
         with:
           extra-packages: any::rcmdcheck
           needs: check
+          dependencies: '"hard"' #skip Suggests
 
       - uses: r-lib/actions/check-r-package@v2
         with:
           upload-snapshots: true
           build_args: 'c("--no-manual","--compact-vignettes=gs+qpdf")'
+          # 👇 Skip vignette building on CI (metabom8 may be missing)
+          check_args: 'c("--no-vignettes", "--ignore-vignettes")'
