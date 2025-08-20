@@ -1,6 +1,6 @@
 on:
   push:
-    branches: [master, bioc]
+    branches: [bioc]
   pull_request:
   workflow_dispatch:
 
@@ -49,5 +49,4 @@ jobs:
         with:
           upload-snapshots: true
           build_args: 'c("--no-manual","--compact-vignettes=gs+qpdf")'
-          # 👇 Skip vignette building on CI (metabom8 may be missing)
           check_args: 'c("--no-vignettes", "--ignore-vignettes")'
