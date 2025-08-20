@@ -60,6 +60,7 @@ system.file("extdata", package = "nmrdata")
 
 MIT License © Torben Kimhofer  
 If you use this package, please cite the associated study [1]
+
 ---
 
 ## 📚 References
