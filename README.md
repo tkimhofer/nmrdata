@@ -68,4 +68,4 @@ If you use this package, please cite the associated study [1]
 [1] Li, Jia V., *et al.* (2011). *Metabolic surgery profoundly influences gut microbial–host metabolic cross-talk.* **Gut**, 60(9), 1214–1223.
 
 
-*Built and maintained with care by [@tkimhofer](https://github.com/tkimhofer)*
+*Built and maintained by [@tkimhofer](https://github.com/tkimhofer)*
