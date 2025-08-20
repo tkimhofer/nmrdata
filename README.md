@@ -6,8 +6,7 @@
 
 This data-only R package provides curated 1D proton NMR spectra of murine urine samples collected before and after Roux-en-Y gastric bypass surgery. A sham surgery group is included as a negative control [1].
 
-In addition to the processed dataset (`bariatric`), the package contains a minimal set of raw Bruker NMR experiment folders, stored under `inst/extdata/`.  
-These files can be accessed using `system.file()`.
+In addition to the processed dataset (`bariatric`), the package contains a minimal set of raw Bruker NMR experiment folders, stored under `inst/extdata/`. These files can be accessed using `system.file()`.
 
 
 ---
