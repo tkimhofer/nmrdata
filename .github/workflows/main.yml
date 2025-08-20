@@ -1,6 +1,6 @@
 on:
   push:
-    branches: [master, bioc]
+    branches: [bioc]
   pull_request:
   workflow_dispatch:
 
