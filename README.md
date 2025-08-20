@@ -1,41 +1,52 @@
 [![R-CMD-check](https://github.com/tkimhofer/nmrdata/actions/workflows/main.yml/badge.svg)](https://github.com/tkimhofer/nmrdata/actions/workflows/main.yml)
 
-# nmrData 📦
+# nmrdata 📦
 
 **Example datasets for 1D NMR spectral analysis in R**
 
-This Data-only R package provides curated 1D NMR datasets for use in metabolomics teaching, demonstration, and package development. The datasets are formatted for direct use with R-based tools such as [`metabom8`](https://github.com/tkimhofer/metabom8).
+This data-only R package provides curated 1D proton NMR spectra of murine urine samples collected in a bariatric surgery study [1].
+
+In addition to the processed dataset (`bariatric`), the package contains a minimal set of raw Bruker NMR experiment folders, stored under `inst/extdata/`.
+
 
 ---
 
-## 📁 Included Dataset
+## 📁 Included Data
 
-Dataset is stored in the `data/` directory in `.rda` format and includes:
+- **Processed dataset (in `data/` as `.rda`):**
+  - `bariatric`: NMR spectra and metadata from a bariatric surgery study  
+    - Pre-processed spectral matrix (`X_pqn`)
+    - Chemical shift values (`ppm`)
+    - Sample annotations (`an`)  
+    - Data acquisition and processing status information (`meta`)  
 
-- `bariatric`: Spectra and metadata from a bariatric surgery study [1]
-
-Dataset includes:
-- Pre-processed spectral matrix (`X_pqn`)
-- Associated sample metadata (`an`)
-- Chemical shift values (`ppm`)
+- **Raw data (in `inst/extdata/`):**
+  - Bruker experiment folders
 
 ---
 
 ## 📦 Installation
 
-You can install this repository as an R package using:
+Install from GitHub using:
 
 ```r
 # install.packages("remotes")
 remotes::install_github("tkimhofer/nmrData")
 ```
 
-Once installed, datasets can be loaded via:
+Load the data:
 
 ```r
 library(nmrData)
 data(bariatric)
 ```
+
+Access raw files:
+
+```r
+system.file("extdata", package = "nmrdata")
+```
+
 
 ---
 
@@ -48,7 +59,7 @@ data(bariatric)
 ## 📜 License & Citation
 
 MIT License © Torben Kimhofer  
-If you use this data in published work, please include appropriate attribution or citation.
+If you use this package, please cite the associated study [1]
 
 ---
 
@@ -57,4 +68,4 @@ If you use this data in published work, please include appropriate attribution o
 [1] Li, Jia V., *et al.* (2011). *Metabolic surgery profoundly influences gut microbial–host metabolic cross-talk.* **Gut**, 60(9), 1214–1223.
 
 
-*Built and maintained with care by [@tkimhofer](https://github.com/tkimhofer)*
+*Built and maintained by [@tkimhofer](https://github.com/tkimhofer)*
