@@ -47,7 +47,7 @@ The dataset is provided as an R list with three elements:
 # Usage
 
 ```{r, eval=FALSE}
-# TODO: Once ExhHub is assigned, rm eval=F in code chunk pars
+# TODO: Once ExpHub is assigned, rm eval=F in code chunk pars
 library(nmrdata)
 
 # load pre-processed data set
