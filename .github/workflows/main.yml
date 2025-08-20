@@ -1,6 +1,6 @@
 on:
   push:
-    branches: [master]
+    branches: [master, bioc]
   pull_request:
 
 name: R-CMD-check
