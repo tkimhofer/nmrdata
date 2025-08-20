@@ -33,7 +33,7 @@ Install from GitHub using:
 remotes::install_github("tkimhofer/nmrData")
 ```
 
-Load the processed data (once ExperimentHub ID assigned):
+Load the processed data (pending ExperimentHub ID assigment):
 
 ```r
 library(nmrdata)
