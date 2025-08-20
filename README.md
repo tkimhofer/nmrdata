@@ -4,8 +4,7 @@
 
 **Example datasets for 1D NMR spectral analysis in R**
 
-This data-only R package provides curated 1D proton NMR spectra of murine urine samples collected before and after Roux-en-Y gastric bypass surgery.  
-A sham surgery group is included as a negative control [1].
+This data-only R package provides curated 1D proton NMR spectra of murine urine samples collected before and after Roux-en-Y gastric bypass surgery. A sham surgery group is included as a negative control [1].
 
 In addition to the processed dataset (`bariatric`), the package contains a minimal set of raw Bruker NMR experiment folders, stored under `inst/extdata/`.  
 These files can be accessed using `system.file()`.
@@ -61,8 +60,7 @@ system.file("extdata", package = "nmrdata")
 ## 📜 License & Citation
 
 MIT License © Torben Kimhofer  
-If you use this data in published work, please include appropriate attribution or citation.
-
+If you use this package, please cite the associated study [1]
 ---
 
 ## 📚 References
