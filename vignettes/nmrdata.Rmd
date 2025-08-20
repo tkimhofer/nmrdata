@@ -66,7 +66,7 @@ plot(ppm.bariatric, X.bariatric[1,], type = "l",
 ```
 
 
-```{r, eval = requireNamespace("metabom8", quietly = TRUE), eval=FALSE}
+```{r, eval = requireNamespace("metabom8", quietly = TRUE)}
 library(metabom8)
 library(ExperimentHub)
 
