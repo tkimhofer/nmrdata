@@ -17,7 +17,7 @@ urine samples collected before and after Roux-en-Y gastric bypass.
 A sham surgery group is also included as a negative control [@li2011gut].
 
 In addition to the processed dataset (`bariatric`), the package also contains a minimal set 
-of the raw Bruker NMR experiment files, located under `inst/extdata/`. 
+of 21 raw Bruker NMR experiment folders, located under `inst/extdata/`. 
 These files can be accessed using the `system.file()` function, e.g.:
 
 ```{r}
