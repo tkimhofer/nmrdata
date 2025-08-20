@@ -39,11 +39,18 @@ jobs:
           http-user-agent: ${{ matrix.config.http-user-agent }}
           use-public-rspm: true
 
+
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
           extra-packages: any::rcmdcheck
-          needs: check
+          needs: default
           install-suggests: false
+      
+      - uses: r-lib/actions/check-r-package@v2
+        with:
+          upload-snapshots: true
+          build_args: 'c("--no-manual","--compact-vignettes=gs+qpdf")'
+          check_args: 'c("--no-vignettes", "--ignore-vignettes")'
 
       - uses: r-lib/actions/check-r-package@v2
         with:
